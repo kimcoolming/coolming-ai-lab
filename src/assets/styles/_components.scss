@@ -1,0 +1,143 @@
+@use "./variables" as *;
+@use "./mixin" as *;
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  color: $text-color;
+  background-color: #f6f7fb;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-container {
+  max-width: $layout-width;
+  margin: 0 auto;
+}
+
+.detail-body {
+  @include content-width;
+}
+
+.app-bar {
+  position: sticky !important;
+  top: 0;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  background: rgba(255, 255, 255, 0.72) !important;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+
+  .v-toolbar__content {
+    padding-inline: 16px;
+  }
+}
+
+.app-bar--home {
+  background: rgba(255, 255, 255, 0.58) !important;
+}
+
+.app-bar--dark {
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  background: rgba(11, 18, 32, 0.72) !important;
+}
+
+.app-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.app-brand__symbol {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #60a5fa 0%, #8b5cf6 50%, #f472b6 100%);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.28);
+}
+
+.app-brand__symbol-core {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.6);
+}
+
+.app-brand__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.app-brand__title {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.app-brand__sub {
+  margin-top: 3px;
+  font-size: 11px;
+  opacity: 0.62;
+}
+
+.app-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app-bar__icon-btn {
+  border-radius: 14px;
+}
+
+.app-drawer__top {
+  padding: 18px 16px 8px;
+}
+
+.app-brand--drawer {
+  width: 100%;
+}
+
+.app-footer {
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+  background: rgba(255, 255, 255, 0.66);
+  backdrop-filter: blur(10px);
+}
+
+.v-theme--dark {
+  body {
+    background-color: #0b1220;
+  }
+
+  .app-footer {
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    background: rgba(11, 18, 32, 0.7);
+  }
+}
+
+@media (max-width: 600px) {
+  .app-brand__sub {
+    display: none;
+  }
+
+  .app-brand__title {
+    font-size: 14px;
+  }
+}

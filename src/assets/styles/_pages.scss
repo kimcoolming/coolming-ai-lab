@@ -1,0 +1,51 @@
+@use "./variables" as *;
+@use "./mixin" as *;
+
+.page-header {
+  margin-bottom: 32px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.page-desc {
+  margin-top: 8px;
+  opacity: 0.7;
+}
+
+/* =========================
+   AI LAB PAGE
+========================= */
+
+.page-ai-lab {
+  .ai-avatar {
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+  }
+
+  .ai-card {
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
+/* =========================
+   TEMPLATES PAGE
+========================= */
+
+/* =========================
+   SERVICES PAGE
+========================= */
+
+/* =========================
+   CONTACT PAGE
+========================= */

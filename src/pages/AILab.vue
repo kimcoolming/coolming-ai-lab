@@ -1,26 +1,69 @@
 <script setup>
-const items = [
-  { title: "AppShell 만들기", summary: "AppBar + Drawer + Footer 기본 레이아웃", tags: ["vuetify", "layout"] },
-  { title: "PWA 붙이기", summary: "manifest + 설치형 웹앱 기본 세팅", tags: ["pwa", "vite"] },
-  { title: "홈 카드 허브", summary: "프로젝트 이동 허브 구성", tags: ["ui", "cards"] },
-];
+import { aiLabPosts } from "@/data/aiLabPosts";
+
+const getInitial = (title) => {
+  return title.charAt(0).toUpperCase();
+};
 </script>
 
 <template>
-  <div class="mb-6">
-    <div class="text-h5 font-weight-bold">AI Lab</div>
-    <div class="text-body-2 opacity-80">바이브코딩 실험을 쌓는 공간</div>
-  </div>
+  <div class="page-ai-lab">
+    <!-- 페이지 헤더 -->
 
-  <v-row>
-    <v-col v-for="it in items" :key="it.title" cols="12" md="6">
-      <v-card rounded="xl">
-        <v-card-title class="font-weight-bold">{{ it.title }}</v-card-title>
-        <v-card-text class="opacity-80">{{ it.summary }}</v-card-text>
-        <v-card-text class="pt-0">
-          <v-chip v-for="t in it.tags" :key="t" class="me-2" size="small" label>{{ t }}</v-chip>
-        </v-card-text>
-      </v-card>
-    </v-col>
-  </v-row>
+    <div class="page-header">
+      <div class="page-title">AI Lab</div>
+
+      <div class="page-desc">바이브코딩 실험과 기록을 쌓는 공간</div>
+    </div>
+
+    <!-- 카드 목록 -->
+
+    <v-row>
+      <v-col v-for="post in aiLabPosts" :key="post.id" cols="12" md="6" lg="4">
+        <v-card class="ai-card" rounded="lg" elevation="1">
+          <v-card-item>
+            <!-- 아바타 -->
+
+            <template #prepend>
+              <v-avatar size="40" color="primary" class="ai-avatar">
+                {{ getInitial(post.title) }}
+              </v-avatar>
+            </template>
+
+            <!-- 제목 -->
+
+            <v-card-title>
+              {{ post.title }}
+            </v-card-title>
+
+            <!-- 날짜 -->
+
+            <v-card-subtitle>
+              {{ post.date }}
+            </v-card-subtitle>
+          </v-card-item>
+
+          <!-- 요약 -->
+
+          <v-card-text>
+            {{ post.summary }}
+
+            <!-- 태그 -->
+
+            <div class="mt-3">
+              <v-chip v-for="tag in post.tags" :key="tag" size="small" class="me-2 mb-2" variant="tonal">
+                {{ tag }}
+              </v-chip>
+            </div>
+          </v-card-text>
+
+          <!-- 버튼 -->
+
+          <v-card-actions>
+            <v-btn :to="`/ai-lab/${post.id}`" color="primary" variant="flat"> Read More </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
+  </div>
 </template>
