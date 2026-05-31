@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useTheme } from "vuetify";
+import ScrollToTop from "../components/ScrollToTop.vue";
 
 const drawer = ref(false);
 const theme = useTheme();
@@ -97,5 +98,6 @@ function goHome() {
         <div class="text-caption">Vue · Vuetify · PWA</div>
       </v-container>
     </v-footer>
+    <ScrollToTop />
   </v-app>
 </template>

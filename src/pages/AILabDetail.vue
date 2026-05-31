@@ -92,14 +92,4 @@ const nextPost = computed(() => (postIndex.value < aiLabPosts.length - 1 ? aiLab
   </div>
 </template>
 
-<style scoped>
-.detail-body {
-  max-width: 860px;
-}
 
-.post-content {
-  white-space: pre-line;
-  line-height: 1.95;
-  font-size: 1.05rem;
-}
-</style>

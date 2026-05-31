@@ -22,10 +22,6 @@ a {
   margin: 0 auto;
 }
 
-.detail-body {
-  @include content-width;
-}
-
 .app-bar {
   position: sticky !important;
   top: 0;
@@ -115,22 +111,9 @@ a {
   width: 100%;
 }
 
-.app-footer {
-  border-top: 1px solid rgba(15, 23, 42, 0.06);
-  background: rgba(255, 255, 255, 0.66);
-  backdrop-filter: blur(10px);
-}
 
-.v-theme--dark {
-  body {
-    background-color: #0b1220;
-  }
 
-  .app-footer {
-    border-top: 1px solid rgba(148, 163, 184, 0.08);
-    background: rgba(11, 18, 32, 0.7);
-  }
-}
+
 
 @media (max-width: 600px) {
   .app-brand__sub {
@@ -139,5 +122,26 @@ a {
 
   .app-brand__title {
     font-size: 14px;
+  }
+}
+
+/* Scroll to top button (fallback / global styles) */
+.scroll-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  z-index: 9999;
+}
+
+.scroll-to-top__btn {
+  background: linear-gradient(135deg, #60a5fa 0%, #8b5cf6 50%, #f472b6 100%);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.18);
+}
+
+@media (max-width: 600px) {
+  .scroll-to-top {
+    right: 14px;
+    bottom: 18px;
   }
 }
